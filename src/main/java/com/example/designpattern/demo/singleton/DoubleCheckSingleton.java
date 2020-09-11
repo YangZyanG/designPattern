@@ -24,6 +24,8 @@ public class DoubleCheckSingleton {
      */
     public static DoubleCheckSingleton getInstance(){
 
+        //这里singleton实例需要用volitile关键字修饰
+        //因为volatile关键字会保证顺序性，避免线程拿到未创建完的对象
         if(null == singleton){
             synchronized (DoubleCheckSingleton.class){
                 if(null == singleton)
